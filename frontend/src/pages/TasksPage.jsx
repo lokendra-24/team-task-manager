@@ -4,7 +4,8 @@ import { getProjectsApi } from "../api/projects";
 import { createTaskApi, getTasksApi, updateTaskApi } from "../api/tasks";
 import {
   Search, SlidersHorizontal, AlertCircle, Calendar,
-  Plus, CheckCircle2, Circle, Clock, X, Sparkles
+  Plus, CheckCircle2, Circle, Clock, X, Sparkles,
+  MoreVertical
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";

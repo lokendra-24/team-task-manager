@@ -93,6 +93,7 @@ function ChartTooltip({ active, payload }) {
 
 // ── Page ───────────────────────────────────────────────────────────────────────
 export default function DashboardPage() {
+  const { user } = useAuth();
   const [data, setData]       = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState(null);
@@ -161,8 +162,6 @@ export default function DashboardPage() {
     : 0;
 
   const chartData = STAT_CARDS.map(c => ({ name: c.label, value: stats[c.key] ?? 0 }));
-
-  const { user } = useAuth();
 
   return (
     <div className="space-y-8">
