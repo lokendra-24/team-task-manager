@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 120
     DATABASE_URL: str
 
-    # ✅ FIXED CORS
+    # 🔥 FIXED CORS (IMPORTANT)
     CORS_ORIGINS: List[str] = [
         "http://localhost:5173",
         "https://team-task-manager-lokendra.vercel.app"
