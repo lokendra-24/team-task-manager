@@ -13,7 +13,12 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 120
     DATABASE_URL: str
-    CORS_ORIGINS: List[str] = ["http://localhost:5173"]
+
+    # ✅ FIXED CORS
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:5173",
+        "https://team-task-manager-lokendra.vercel.app"
+    ]
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
@@ -26,4 +31,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-
