@@ -13,20 +13,12 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 120
     DATABASE_URL: str
-    CORS_ORIGINS: List[str] | str = ["http://localhost:5173"]
+    CORS_ORIGINS: List[str] = ["http://localhost:5173"]
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def parse_cors(cls, value):
         if isinstance(value, str):
-            if value == "*":
-                return ["*"]
-            if value.startswith("[") and value.endswith("]"):
-                import json
-                try:
-                    return json.loads(value)
-                except json.JSONDecodeError:
-                    pass
             return [item.strip() for item in value.split(",") if item.strip()]
         return value
 

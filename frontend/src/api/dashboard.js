@@ -9,6 +9,13 @@ import api from "./client";
  */
 export const getDashboardApi = async () => {
   const { data } = await api.get("/dashboard");
-  return data;
+  return {
+    stats: {
+      total: data.total_tasks,
+      completed: data.completed_tasks,
+      pending: data.pending_tasks,
+      overdue: data.overdue_tasks,
+    },
+  };
 };
 
